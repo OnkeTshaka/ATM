@@ -4,13 +4,13 @@
 
 <div class="row">
     <div class="col-md-6 margin-top-20">
-        <a href="#" class="btn btn-primary btn-lg btn-block"><span class="glyphicon glyphicon-circle-arrow-down"></span>Withdraw</a>
-        <a href="#" class="btn btn-primary btn-lg btn-block"><span class="glyphicon glyphicon-flash"></span>Quick Cash R100</a>
+        <a href="@Url.Action("Withdraw","Transactions", new { checkingAccountId = ViewBag.CheckingAccountId})" class="btn btn-primary btn-lg btn-block"><span class="glyphicon glyphicon-circle-arrow-down"></span>Withdraw</a>
+        <a href="@Url.Action("QuickCash","Transactions", new { checkingAccountId = ViewBag.CheckingAccountId, cash =100})" class="btn btn-primary btn-lg btn-block"><span class="glyphicon glyphicon-flash"></span>Quick Cash R100</a>
         <a href="@Url.Action("Details","CheckingAccount")" class="btn btn-primary btn-lg btn-block"><span class="glyphicon glyphicon-question-sign"></span>Balance</a>
     </div>
     <div class="col-md-6 margin-top-20">
-        <a href="#" class="btn btn-primary btn-lg btn-block"><span class="glyphicon glyphicon-print"></span>Print</a>
-        <a href="#" class="btn btn-primary btn-lg btn-block"><span class="glyphicon glyphicon-transfer"></span>Transfer funds</a>
+        <a href="@Url.Action("Statement","CheckingAccount", new { id = ViewBag.CheckingAccountId})" class="btn btn-primary btn-lg btn-block"><span class="glyphicon glyphicon-print"></span>Print</a>
+        <a href="@Url.Action("Transfer","Transactions", new { checkingAccountId = ViewBag.CheckingAccountId})" class="btn btn-primary btn-lg btn-block"><span class="glyphicon glyphicon-transfer"></span>Transfer funds</a>
         <a href="@Url.Action("Deposit","Transactions", new { checkingAccountId = ViewBag.CheckingAccountId})" class="btn btn-primary btn-lg btn-block"><span class="glyphicon glyphicon-circle-arrow-up"></span>Deposit</a>
     </div>
 </div>

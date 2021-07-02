@@ -1,0 +1,9 @@
+﻿@model ATM.ViewModel.TransferViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div style="margin-top:50px">
+    <h2 class="text-success">
+        You successfully transferred @String.Format("{0:c}", Model.Amount) to Account # @Model.DestinationCheckingAccountNum .
+    </h2>
+</div>

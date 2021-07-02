@@ -26,6 +26,7 @@ namespace ATM.Models
         }
         [DataType(DataType.Currency)]
         public decimal Balance { get; set; }
+        public DateTime joinDate { get; set; } = DateTime.Now;
         public virtual ApplicationUser User { get; set; }
         [Required]
         public string ApplicationUserId { get; set; }

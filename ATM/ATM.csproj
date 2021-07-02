@@ -175,6 +175,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202107021532316_AddedDate.cs" />
+    <Compile Include="Migrations\202107021532316_AddedDate.Designer.cs">
+      <DependentUpon>202107021532316_AddedDate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CheckingAccount.cs" />
@@ -184,6 +188,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CheckingAccountService.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModel\TransferViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -244,6 +249,13 @@
     <Content Include="Views\CheckingAccount\Create.cshtml" />
     <Content Include="Views\Transactions\Deposit.cshtml" />
     <Content Include="Views\CheckingAccount\List.cshtml" />
+    <Content Include="Views\CheckingAccount\Statement.cshtml" />
+    <Content Include="Views\Transactions\Withdraw.cshtml" />
+    <Content Include="Views\Transactions\_TransferForm.cshtml" />
+    <Content Include="Views\Transactions\_TransferSuccess.cshtml" />
+    <Content Include="Views\Transactions\Transfer.cshtml" />
+    <Content Include="Views\Transactions\QuickCash.cshtml" />
+    <Content Include="Views\Transactions\QuickCasInsufficientFunds.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -255,6 +267,11 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202107021532316_AddedDate.resx">
+      <DependentUpon>202107021532316_AddedDate.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

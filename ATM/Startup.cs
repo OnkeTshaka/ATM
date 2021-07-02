@@ -4,6 +4,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin;
 using Owin;
+using System.Security.Claims;
 using System.Web;
 
 [assembly: OwinStartupAttribute(typeof(ATM.Startup))]
@@ -43,8 +44,8 @@ namespace ATM
                 string userPWD = "Fire101Walls#@";
 
                 var chkUser = UserManager.Create(user, userPWD);
+                UserManager.AddClaim(user.Id, new Claim(ClaimTypes.GivenName, "Admin"));
 
-               
                 var service = new CheckingAccountService(context);
                 service.CreateCheckingAccount("Admin", "User", user.Id, 1000);
                 //Add default User to Role Admin

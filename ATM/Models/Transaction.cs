@@ -12,6 +12,8 @@ namespace ATM.Models
         public int Id { get; set; }
         [DataType(DataType.Currency)]
         public decimal Amount { get; set; }
+
+        public DateTime transactionDate { get; set; } = DateTime.Now;
         [Required]
         public int CheckingAccountId { get; set; }
         public virtual CheckingAccount CheckingAccount { get; set; }

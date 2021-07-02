@@ -17,6 +17,11 @@ namespace ATM.Controllers
         {
             return View(db.CheckingAccounts.ToList());
         }
+        public ActionResult Statement(int id)
+        {
+            var checkingAccount = db.CheckingAccounts.Find(id);
+            return View(checkingAccount.Transactions.ToList());
+        }
 
         //Reusing the original details view
         [Authorize(Roles ="Admin")]
@@ -26,7 +31,7 @@ namespace ATM.Controllers
             return View("Details",checkingAccount);
         }
         // GET: CheckingAccount/Details/5
-        public ActionResult Details(/*int id*/)
+        public ActionResult Details()
         {
             var userId = User.Identity.GetUserId();
             var checkingAccount = db.CheckingAccounts.Where(m => m.ApplicationUserId == userId).First();

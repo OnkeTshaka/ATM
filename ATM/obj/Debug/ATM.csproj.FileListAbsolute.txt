@@ -66,6 +66,7 @@ c:\users\ad\documents\visual studio 2015\Projects\ATM\ATM\bin\Microsoft.Owin.Sec
 c:\users\ad\documents\visual studio 2015\Projects\ATM\ATM\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 c:\users\ad\documents\visual studio 2015\Projects\ATM\ATM\obj\Debug\ATM.dll
 c:\users\ad\documents\visual studio 2015\Projects\ATM\ATM\obj\Debug\ATM.pdb
-C:\Users\ad\Documents\Visual Studio 2015\Projects\ATM\ATM\obj\Debug\ATM.csprojResolveAssemblyReference.cache
 C:\Users\ad\Documents\Visual Studio 2015\Projects\ATM\ATM\obj\Debug\ATM.Migrations.AddedDate.resources
 C:\Users\ad\Documents\Visual Studio 2015\Projects\ATM\ATM\obj\Debug\ATM.csproj.GenerateResource.Cache
+C:\Users\ad\Documents\Visual Studio 2015\Projects\ATM\ATM\obj\Debug\ATM.Migrations.UserProfile.resources
+C:\Users\ad\Documents\Visual Studio 2015\Projects\ATM\ATM\obj\Debug\ATM.csprojResolveAssemblyReference.cache

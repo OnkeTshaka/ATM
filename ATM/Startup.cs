@@ -4,6 +4,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin;
 using Owin;
+using System;
 using System.Security.Claims;
 using System.Web;
 
@@ -40,6 +41,7 @@ namespace ATM
                 var user = new ApplicationUser();
                 user.UserName = "firewalls@gmail.com";
                 user.Email = "firewalls@gmail.com";
+                user.UserPhoto = Array.Empty<byte>();
 
                 string userPWD = "Fire101Walls#@";
 

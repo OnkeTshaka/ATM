@@ -1,26 +1,53 @@
 ﻿@using Microsoft.AspNet.Identity
-@using System.Security.Claims;
+@using System.Security.Claims
 @if (Request.IsAuthenticated)
 {
     //Claims
     var identity = (ClaimsIdentity)User.Identity;
-    var name = identity.FindFirstValue(ClaimTypes.GivenName) ?? identity.GetUserName() ;
-    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
-    {
-                    @Html.AntiForgeryToken()
+    var name = identity.FindFirstValue(ClaimTypes.GivenName) ?? identity.GetUserName();
+    <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <img src="@Url.Action("UserPhotos", "Home" )" height="30" width="30" style="border-radius:50%;" />
 
-                    <ul class="nav navbar-nav navbar-right">
-        <li>
-            @Html.ActionLink("Hello " + name + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+                <span>
+                    @name   <i class="caret"></i>
+                </span>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                    @Html.ActionLink("My Account", "UserProfile", "Account")
+                </li>
+                <li>
+                    @Html.ActionLink("Manage Account", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+                </li>
+                @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+                {
+                @Html.AntiForgeryToken()
+
+                <li style="text-decoration:none;display:flex;align-items:center;"><a  href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+
+                }
+
+                <li class="divider"></li>
+            </ul>
         </li>
-        <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
-    </ul>
-    }
+ </ul>
+
 }
 else
 {
-    <ul class="nav navbar-nav navbar-right">
-        <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
-    </ul>
-}
+<ul class="nav navbar-nav navbar-right">
+    <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+    <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+</ul>
+}   
+<style>
+    #k:hover{
+        color:#ff0000;
+    }
+</style>
+<script>
+
+
+</script>

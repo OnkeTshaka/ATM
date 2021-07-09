@@ -179,10 +179,15 @@
     <Compile Include="Migrations\202107021532316_AddedDate.Designer.cs">
       <DependentUpon>202107021532316_AddedDate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202107041506258_UserProfile.cs" />
+    <Compile Include="Migrations\202107041506258_UserProfile.Designer.cs">
+      <DependentUpon>202107041506258_UserProfile.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ApplicationDbContext.cs" />
+    <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\CheckingAccount.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Transaction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -193,10 +198,12 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\login.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\noImg.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -218,7 +225,9 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Views\Web.config" />
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
@@ -256,6 +265,9 @@
     <Content Include="Views\Transactions\Transfer.cshtml" />
     <Content Include="Views\Transactions\QuickCash.cshtml" />
     <Content Include="Views\Transactions\QuickCasInsufficientFunds.cshtml" />
+    <Content Include="Views\Shared\_ProfileControlPartial.cshtml" />
+    <Content Include="Views\Account\EditUser.cshtml" />
+    <Content Include="Views\Account\UserProfile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -271,6 +283,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202107021532316_AddedDate.resx">
       <DependentUpon>202107021532316_AddedDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107041506258_UserProfile.resx">
+      <DependentUpon>202107041506258_UserProfile.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

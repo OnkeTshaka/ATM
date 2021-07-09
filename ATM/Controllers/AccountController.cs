@@ -10,6 +10,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using ATM.Models;
 using ATM.Services;
+using System.IO;
 
 namespace ATM.Controllers
 {
@@ -148,11 +149,23 @@ namespace ATM.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterViewModel model)
+        public async Task<ActionResult> Register([Bind(Exclude = "UserPhoto")]RegisterViewModel model)
         {
+          
             if (ModelState.IsValid)
             {
+                byte[] imageData = null;
+                if (Request.Files.Count > 0)
+                {
+                    HttpPostedFileBase poImgFile = Request.Files["UserPhoto"];
+
+                    using (var binary = new BinaryReader(poImgFile.InputStream))
+                    {
+                        imageData = binary.ReadBytes(poImgFile.ContentLength);
+                    }
+                }
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                user.UserPhoto = imageData;
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -178,7 +191,57 @@ namespace ATM.Controllers
             // If we got this far, something failed, redisplay form
             return View(model);
         }
+        public ActionResult UserProfile()
+        {
+            ApplicationDbContext _db = new ApplicationDbContext();
+            var userId = User.Identity.GetUserId();
+            var user = _db.Users.Where(m => m.Id == userId).First();
+            return View(user);
+        }
+        //
+        public ActionResult EditUser()
+        {
+            ApplicationDbContext _db = new ApplicationDbContext();
+            var userId = User.Identity.GetUserId();
+            var user = _db.Users.Where(m => m.Id == userId).First();
 
+            if (user == null)
+            {
+                return HttpNotFound();
+            }
+            return View(user);
+        }
+
+        //// POST: Members/Edit/5
+        //// To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        //// more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditUser([Bind(Exclude = "UserPhoto")]ApplicationUser member)
+        {
+            ApplicationDbContext _db = new ApplicationDbContext();
+            if (ModelState.IsValid)
+            {
+                var userId = User.Identity.GetUserId();
+                ApplicationUser memberInDB = _db.Users.Single(c => c.Id == userId);
+                byte[] imageData = null;
+                if (Request.Files.Count > 0)
+                {
+                    HttpPostedFileBase poImgFile = Request.Files["UserPhoto"];
+
+                    using (var binary = new BinaryReader(poImgFile.InputStream))
+                    {
+                        imageData = binary.ReadBytes(poImgFile.ContentLength);
+                    }
+                }
+                memberInDB.UserPhoto = imageData;
+                memberInDB.Email = member.Email;
+                memberInDB.UserName = member.UserName;
+                _db.SaveChanges();
+                return RedirectToAction("UserProfile");
+            }
+            return View(member);
+        }
         //
         // GET: /Account/ConfirmEmail
         [AllowAnonymous]

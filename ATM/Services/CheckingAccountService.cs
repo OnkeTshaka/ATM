@@ -16,6 +16,7 @@ namespace ATM.Services
 
         public void CreateCheckingAccount(string firstName, string lastName,string userId,decimal initialBalance)
         {
+           
             var chk = (123456 + applicationDbContext.CheckingAccounts.Count()).ToString().PadLeft(10, '0');
             var ca = new CheckingAccount { AccountNumber = chk, FirstName = firstName, LastName = lastName, Balance = initialBalance, ApplicationUserId = userId };
             applicationDbContext.CheckingAccounts.Add(ca);

@@ -1,0 +1,16 @@
+﻿@model ATM.Models.ApplicationUser
+
+@if (Request.IsAuthenticated)
+{
+    <div class="col-md-8">
+
+            <div class="col-md-4">
+                @using (Html.BeginForm("EditUser", "Account", FormMethod.Get))
+                {
+                    <input type="submit" name="action" value="Edit My Profile" class="btn btn-success" style="width:250px;"/>
+                }
+            </div>
+        <br />
+    </div>
+}
+    

@@ -7,29 +7,20 @@
     var name = identity.FindFirstValue(ClaimTypes.GivenName) ?? identity.GetUserName();
     <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <a href="#">
                 <img src="@Url.Action("UserPhotos", "Home" )" height="30" width="30" style="border-radius:50%;" />
+            <span>@name </span> <i class="bi bi-chevron-down"></i></a>
 
-                <span>
-                    @name   <i class="caret"></i>
-                </span>
-            </a>
-            <ul class="dropdown-menu">
-                <li>
-                    @Html.ActionLink("My Account", "UserProfile", "Account")
-                </li>
-                <li>
-                    @Html.ActionLink("Manage Account", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
-                </li>
+            <ul>
+                <li>@Html.ActionLink("My Account", "UserProfile", "Account")</li>
+                <li>@Html.ActionLink("Manage Account", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })</li>
                 @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
                 {
-                @Html.AntiForgeryToken()
+                    @Html.AntiForgeryToken()
 
-                <li style="text-decoration:none;display:flex;align-items:center;"><a  href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+                    <li style="text-decoration:none;display:flex;align-items:center;"><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
 
                 }
-
-                <li class="divider"></li>
             </ul>
         </li>
  </ul>
@@ -38,7 +29,6 @@
 else
 {
 <ul class="nav navbar-nav navbar-right">
-    <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
     <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
 </ul>
 }   

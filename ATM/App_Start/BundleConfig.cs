@@ -24,8 +24,17 @@ namespace ATM
                       "~/Scripts/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                    "~/Content/vendor/animate.css/animate.min.css",
+                    "~/Content/vendor/aos/aos.css",
+                    "~/Content/bootstrap.css",
+                    "~/Content/Site.css",
+                    "~/Content/vendor/bootstrap/css/bootstrap.min.css",
+                    "~/Content/vendor/bootstrap-icons/bootstrap-icons.css",
+                    "~/Content/vendor/boxicons/css/boxicons.min.css",
+                    "~/Content/vendor/glightbox/css/glightbox.min.css",
+                    "~/Content/vendor/remixicon/remixicon.css",
+                    "~/Content/vendor/swiper/swiper-bundle.min.css",
+                    "~/Content/css/style.css"));
         }
     }
 }

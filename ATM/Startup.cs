@@ -41,7 +41,7 @@ namespace ATM
                 var user = new ApplicationUser();
                 user.UserName = "firewalls@gmail.com";
                 user.Email = "firewalls@gmail.com";
-                user.UserPhoto = Array.Empty<byte>();
+                user.UserPhoto = null;
 
                 string userPWD = "Fire101Walls#@";
 

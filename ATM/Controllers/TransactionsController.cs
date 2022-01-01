@@ -1,6 +1,5 @@
 ﻿using ATM.Models;
 using ATM.Services;
-using ATM.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;

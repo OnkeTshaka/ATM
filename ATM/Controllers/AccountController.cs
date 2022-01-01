@@ -59,6 +59,8 @@ namespace ATM.Controllers
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
+            int hour = DateTime.Now.Hour;
+            ViewBag.Greeting = hour < 12 ? "Good Morning" : "Good Afternoon";
             ViewBag.ReturnUrl = returnUrl;
             return View();
         }
@@ -141,6 +143,8 @@ namespace ATM.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
+            int hour = DateTime.Now.Hour;
+            ViewBag.Greeting = hour < 12 ? "Good Morning" : "Good Afternoon";
             return View();
         }
 

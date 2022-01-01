@@ -1,11 +1,8 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using System.Web;
 
 namespace ATM.Models
 {
@@ -18,6 +15,6 @@ namespace ATM.Models
             // Add custom user claims here
             return userIdentity;
         }
-        public byte[] UserPhoto { get; set; }= Array.Empty<byte>();
+        public byte[] UserPhoto { get; set; }= null;
     }
 }

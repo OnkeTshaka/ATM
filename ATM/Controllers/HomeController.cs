@@ -52,7 +52,7 @@ namespace ATM.Controllers
 
                 if (userId == null)
                 {
-                    string fileName = HttpContext.Server.MapPath(@"~/Images/noImg.png");
+                    string fileName = HttpContext.Server.MapPath(@"~/Content/Images/noImg.png");
 
                     byte[] imageData = null;
                     FileInfo fileInfo = new FileInfo(fileName);

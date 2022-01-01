@@ -10,9 +10,7 @@ namespace ATM.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
-            ContextKey = "ATM.Models.ApplicationDbContext";
             AutomaticMigrationDataLossAllowed = true;
-
         }
 
         protected override void Seed(ATM.Models.ApplicationDbContext context)
